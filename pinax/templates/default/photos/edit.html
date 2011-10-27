@@ -10,17 +10,17 @@
 {% block head_title %}{% blocktrans %}Editing Photo Details{% endblocktrans %}{% endblock %}
 
 {% block body %}
-    
+
     <div class="right_panel">
         {% include "photos/photo_right_panel.html" %}
     </div>
-    
+
     <h1>{% trans "Photo Details" %}</h1>
-    
+
     <div class="gallery-photo">
         <img src="{{ photo_url }}" alt="{{ photo.title }}"/>
     </div>
-    
+
     {% ifequal photo.member request.user %}
         <form method="POST" action="">
             <table align="center">
@@ -38,5 +38,5 @@
     {% else %}
         <p>You are not the author of this photo.</p>
     {% endifequal %}
-    
+
 {% endblock %}

@@ -7,13 +7,13 @@
 
 {% block body %}
     <h1>{% trans "Choose a Username" %}</h1>
-    
+
     {% if form.errors %}
         <p class="error">{% trans "Please correct the errors below:" %}</p>
     {% endif %}
-    
+
     <p>{% blocktrans %}Now that you have logged in with your OpenID, we need you to choose a username for this site.{% endblocktrans %}</p>
-    
+
     <form class="uniForm signup" id="edit-profile" method="POST" action="">
         <fieldset class="inlineLabels">
             {{ form|as_uni_form }}
@@ -22,7 +22,7 @@
             </div>
         </fieldset>
     </form>
-    
+
     {% url acct_login_openid as acct_login_openid_url %}
     {% url terms as terms_url %}
     {% url privacy as privacy_url %}

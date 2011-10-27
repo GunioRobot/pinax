@@ -10,12 +10,12 @@
 
 {% block body %}
     {% gblock "support_content" for "gblocks.TitleAndText" %}
-    
+
     <h2>Manuals</h2>
-    
+
     {% gblock "support_content" for "gblocks.TitleAndText" into "content_obj" %}
     {% get_attachments_for content_obj as "attachment_list" %}
-    
+
     {% if attachment_list %}
     <ul>
         {% for att in attachment_list %}
@@ -25,7 +25,7 @@
     {% else %}
         <p>No manuals available.</p>
     {% endif %}
-    
+
     {% attachment_form content_obj %}
 
 {% endblock %}

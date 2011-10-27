@@ -8,24 +8,24 @@
 {% block head_title %}{% trans "Your Groups" %}{% endblock %}
 
 {% block body %}
-    
+
     <h1>{% trans "Your Groups" %}</h1>
-    
+
     {% if groups %}
         <p>{% trans "These are the groups you participate in." %}</p>
-        
+
         {% autopaginate groups %}
-        
+
         <dl>
             {% for group in groups %}
                 {% show_group group %}
             {% endfor %}
         </dl>
-        
+
         {% paginate %}
-        
+
     {% else %}
         <p>You are not a member of any groups yet.</p>
     {% endif %}
-    
+
 {% endblock %}

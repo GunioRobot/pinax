@@ -8,16 +8,16 @@
         <p>{{ location_form }}
            <input type="submit" value="Search &rarr;"></p>
     </form>
-    
+
     <div id="ymap"></div>
     {% autopaginate locations %}
-    
+
     {% for location in locations %}
         {% include "locations/location.html" %}
     {% endfor %}
-    
+
     {% paginate %}
-    
+
 {% endblock %}
 
 {% block extra_body %}

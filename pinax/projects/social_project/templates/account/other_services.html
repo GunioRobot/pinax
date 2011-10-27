@@ -14,7 +14,7 @@
     {% trans "You have already authorized a twitter account." %}
     {% trans "Change your account with this form." %}
     <a href="{% url acct_other_services_remove %}">Delete</a> and start over.
-  
+
 {% endif %}
 <table>
   {{ twitter_form }}
@@ -26,7 +26,7 @@
         <label for="SaveTwitter"></label>
 </form>
     <p>{% endblock %}
-      
+
       {% block extra_body %}
       {% load jquery_validation %}
       {% include_validation %}

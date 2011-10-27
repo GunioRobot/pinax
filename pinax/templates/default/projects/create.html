@@ -12,7 +12,7 @@
 
 {% block body %}
     <h1>{% trans "Create Project" %}</h1>
-    
+
     <p>{% trans "A <b>project</b> is a group of people working together on a common set of tasks." %}</p>
     {% if user.is_authenticated %}
         <form class="uniForm" id="project_form" method="POST" action="">
@@ -29,5 +29,5 @@
         {% url acct_login as login_url %}
         <p>{% blocktrans %}<a href="{{ signup_url }}">Sign up</a> and <a href="{{ login_url }}">log in </a> to create your own project or join an existing one.{% endblocktrans %}</p>
     {% endif %}
-    
+
 {% endblock %}

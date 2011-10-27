@@ -13,7 +13,7 @@
 
 {% block body %}
     <h1>{% trans "Projects" %}</h1>
-    
+
     <p>{% trans "A <b>project</b> is a group of people working on a common set of tasks." %}</p>
     {% if user.is_authenticated %}
         <p><a href="{% url project_create %}">Create</a> your own project.</p>
@@ -22,7 +22,7 @@
         {% url acct_login as login_url %}
         <p>{% blocktrans %}<a href="{{ signup_url }}">Sign up</a> and <a href="{{ login_url }}">log in </a> to create your own project or join an existing one.{% endblocktrans %}</p>
     {% endif %}
-    
+
     <form method="GET" action="">
         <input type="text" name="search" value="{{ search_terms }}" />
         <input type="submit" value="Search" />
@@ -46,5 +46,5 @@
         </dl>
         {% paginate %}
     {% endif %}
-    
+
 {% endblock %}

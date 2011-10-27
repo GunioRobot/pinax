@@ -14,11 +14,11 @@
 
 {% block body %}
     <h1>{% trans "Your Offers" %}</h1>
-    
-    
+
+
     {% if offers %}
 
-        
+
         {% autopaginate offers %}
 
       <table class="tasks" >
@@ -58,5 +58,5 @@
     {% else %}
         No offers yet.
     {% endif %}
-    
+
 {% endblock %}

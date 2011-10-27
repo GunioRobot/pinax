@@ -13,13 +13,13 @@
 {% block head_title %}Tasks History{% endblock %}
 
 {% block body %}
-    
+
     <h1>History for Task
         <a href="{% groupurl task_detail group id=task.id %}">#{{ task.id }}: {{ task.summary }}</a>
     </h1>
-    
+
     <div>{{ task.detail|apply_markup:task.markup }}</div>
-    
+
     <table class="task_list">
         <thead>
             <tr>
@@ -75,14 +75,14 @@
                     {% if change.nudger %}
                         nudged
                     {% endif %}
-                    
+
                     {% if change.comment %}
                         {{ change.comment|linebreaks|urlize }}
                     {% endif %}
                 </td>
                 </tr>
             {% endfor %}
-            
+
         </tbody>
     </table>
 {% endblock %}

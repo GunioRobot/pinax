@@ -15,7 +15,7 @@
 {% block head_title %}{{ project.name }}{% endblock %}
 
 {% block body %}
-    
+
     {% if user.is_authenticated %}
         <div class="right_panel">
             <div class="members">
@@ -34,11 +34,11 @@
             </div>
         </div>
     {% endif %}
-    
+
     <div style="width: 550px;">
-        
+
         <h1>{% trans "Project" %} {{ project.name }}</h1>
-        
+
         <p>
             {% trans "Slug:" %} <tt>{{ project.slug }}</tt><br />
             {% trans "Creator:" %} <a href="{% url profile_detail project.creator.username %}">{{ project.creator }}</a><br />
@@ -46,13 +46,13 @@
             <br />
             {% show_tags_for project %}
         </p>
-        
+
         <p>{{ project.description }}</p>
-        
+
         {% ifequal user project.creator %}
             <div class="form-toggle">
                 <p><span id="edit-project-toggle">{% trans "Edit details" %}</span></p>
-                
+
                 <form class="uniForm" id="edit-project" method="POST" action="">
                     <fieldset class="inlineLabels">
                         {{ project_form|as_uni_form }}
@@ -63,18 +63,18 @@
                     </fieldset>
                 </form>
             </div>
-            
+
         {% endifequal %}
-        
+
         {% if user.is_authenticated %}
             <div>
                 {% if is_member %}
                     {% ifequal user project.creator %}
                         <p>You are the creator of this project.</p>
-                        
+
                         <div class="form-toggle">
                             <p><span id="add-member-toggle">{% trans "Add new member" %}</span></p>
-                            
+
                             <form class="uniForm" id="add-member" method="POST" action="">
                                 <fieldset class="inlineLabels">
                                     {{ adduser_form|as_uni_form }}
@@ -85,7 +85,7 @@
                                 </fieldset>
                             </form>
                         </div>
-                        
+
                         <p>{% silk "delete" %} <a href="#" onclick="$('#delete_project_form').toggle(); return false;">{% trans "Delete project" %}</a><p>
                          <form class="delete_form" id="delete_project_form" action="{% url project_delete project.slug %}" method="POST" style="display: none;">
                              <input type="submit" value="{% trans "Delete Project" %}" /> (all content will be removed)
@@ -98,10 +98,10 @@
                 {% endif %}
             </div>
         {% endif %}
-        
+
         {% if user.is_authenticated %}
             <h2>{% trans "Discussion Topics" %}{% if project.topics.all.count %} ({{ project.topics.all.count }}){% endif %}</h2>
-            
+
             {% get_topics_for_group project as topic_queryset %}
             {% with topic_queryset|slice:":5" as topics %}
                 {% if topics %}
@@ -114,10 +114,10 @@
                     <p>{% blocktrans %}None yet. <a href="{{ new_topic_url }}">Start one...</a>{% endblocktrans %}</p>
                 {% endif %}
             {% endwith %}
-            
+
             {% content_objects project "wiki.Article" as articles %}
             <h2>{% trans "Wiki Articles" %}{% if articles %} ({{ articles|length }}){% endif %}</h2>
-            
+
             {% if articles %}
                 <table class="topics">
                     {% for article in articles %}
@@ -133,12 +133,12 @@
                     {% endblocktrans %}
                 </p>
             {% endif %}
-            
+
             <h2>{% trans "Tasks" %}</h2>
-            
+
             {% groupurl task_list project as tasks_url %}
             <p>More here soon but, in the meantime, here's a link to the <a href="{{ tasks_url }}">task list</a>.</p>
-                        
+
         {% endif %}
     </div>
 
@@ -169,5 +169,5 @@
             }
         });
     </script>
-    
+
 {% endblock %}

@@ -9,10 +9,10 @@
 
 {% block body %}
     <h1>{% trans "Your Bookmarks" %}</h1>
-    
+
     {% if bookmark_instances %}
         {% autopaginate bookmark_instances %}
-        
+
         <table class="bookmarks narrow">
             {% for bookmark_instance in bookmark_instances %}
                 <tr class="{% cycle odd,even %}">
@@ -34,16 +34,16 @@
                             <input type="submit" value="{% trans "Delete Bookmark" %}" />
                             <input type="hidden" name="next" value="{{ request.path }}" />
                         </form>
-                        
+
                     </td>
                 </tr>
             {% endfor %}
         </table>
-        
+
         {% paginate %}
-        
+
     {% else %}
         <p>{% trans "No bookmarks yet." %}</p>
     {% endif %}
-    
+
 {% endblock %}

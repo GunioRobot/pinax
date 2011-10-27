@@ -15,13 +15,13 @@
 
 {% block body %}
     <h1>{% trans "Friends' Bookmarks" %}</h1>
-    
+
     {% if object_list %}
         {# ## FIXME this should probably be done in djanog-sorting #}
         {% with request.field|cut:"-" as sort_order %}
-        
+
         <p class="helptext">{% trans "These are bookmarks from your friends:" %}</p>
-        
+
         <p>{% trans "Sort by:" %}
             {% ifequal sort_order "points" %}
                 {% anchor "hotness" "reddit-like hotness" %}
@@ -47,12 +47,12 @@
                 {% endifequal %}
             {% endifequal %}
         </p>
-        
+
         {% autopaginate object_list %}
-        
+
         {% votes_by_user user on object_list as vote_dict %}
         {% scores_for_objects object_list as score_dict %}
-        
+
         <table class="bookmarks">
             {% for bookmark in object_list %}
                 <tr class="{% cycle odd,even %}">
@@ -95,14 +95,14 @@
                 </tr>
             {% endfor %}
         </table>
-        
+
         {% paginate %}
-        
+
     {% endwith %}
     {% else %}
         <p>{% trans "No bookmarks yet." %}</p>
     {% endif %}
-    
+
 {% endblock %}
 
 {% block extra_body %}

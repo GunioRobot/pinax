@@ -35,7 +35,7 @@ Documentation for Individual Apps
 
 .. toctree::
    :maxdepth: 2
-   
+
    external_apps
 
 Indices and tables

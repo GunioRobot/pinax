@@ -20,18 +20,18 @@
         {% trans "Topics" %}
     {% endif %}
     {% endspaceless %}</h1>
-    
+
     {% autopaginate topics %}
-    
+
     {% for topic in topics %}
         {% include "topics/topic_item.html" %}
     {% endfor %}
-    
+
     {% paginate %}
-    
+
     {% if is_member %}
         <h2>{% trans "New Topic" %}</h2>
-        
+
         <form class="uniForm" method="POST" action="">
             <fieldset class="inlineLabels">
                 {{ topic_form|as_uni_form }}
@@ -42,5 +42,5 @@
             </fieldset>
         </form>
     {% endif %}
-    
+
 {% endblock %}

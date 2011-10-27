@@ -9,11 +9,11 @@
 
 {% block body %}
     <h1>{% trans "Swaps proposed to you" %}</h1>
-    
+
     {% if swaps %}
-        
+
         {% autopaginate swaps %}
-        
+
         <table class="tasks" >
             <tr>
                 <th>Proposal Time</th>
@@ -40,11 +40,11 @@
                 </tr>
             {% endfor %}
         </table>
-        
+
         {% paginate %}
-        
+
     {% else %}
         <p>No proposed swaps.</p>
     {% endif %}
-    
+
 {% endblock %}

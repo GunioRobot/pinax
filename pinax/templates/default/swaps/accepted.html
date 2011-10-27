@@ -14,11 +14,11 @@
 
 {% block body %}
     <h1>{% trans "Your accepted Swaps" %}</h1>
-    
-    
+
+
     {% if swaps %}
 
-        
+
         {% autopaginate swaps %}
 
       <table class="tasks" >
@@ -47,5 +47,5 @@
     {% else %}
         No accepted swaps yet.
     {% endif %}
-    
+
 {% endblock %}

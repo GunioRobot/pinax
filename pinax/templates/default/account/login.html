@@ -7,13 +7,13 @@
 {% block head_title %}{% trans "Login" %}{% endblock %}
 
 {% block body %}
-    
+
     {% if openid and not user.is_authenticated %}
         <p><span class="warning">It appears you have started to login using OpenID. Want to <a href="/openid/register/">finish logging in</a>?</span></p>
     {% endif %}
-    
+
     <h1>{% trans "Log In" %}</h1>
-    
+
     {% if user.is_authenticated %}
         <p><span class="warning">{% trans "Note" %}</span>: {% blocktrans %}you are already logged in as {{ user }}.{% endblocktrans %}</p>
     {% else %}
@@ -22,7 +22,7 @@
         <p>{% blocktrans %}Don't have an account? <a href="{{ signup_url }}">Sign up</a>!{% endblocktrans %}</p>
         {% endifsetting %}
     {% endif %}
-    
+
     <form class="login uniForm" method="POST" action="">
         <fieldset class="inlineLabels">
             <div class="form_block">
@@ -34,7 +34,7 @@
             </div>
         </fieldset>
     </form>
-    
+
     <p>{% trans "Or sign in with your OpenID" %}:</p>
     {# @@@ why isn't this just does as a form object ? #}
     <form class="login uniForm" action="/openid/register/" method="POST">
@@ -58,7 +58,7 @@
             </div>
         </fieldset>
     </form>
-    
+
     <p>{% blocktrans %}If you have any trouble logging in to your account, contact us at <a href="mailto:{{ CONTACT_EMAIL }}">{{ CONTACT_EMAIL }}</a>.{% endblocktrans %}</p>
 {% endblock %}
 

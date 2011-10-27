@@ -10,14 +10,14 @@
 
 {% block body %}
     <h1>Tasks for <a href="{% url profile_detail other_user %}">{{ other_user }}</a></h1>
-    
+
     <p>You can drag this '<a href="{{ bookmarklet }}">{{ SITE_NAME }} Tasks</a>' link to your bookmark bar to quickly get to your open tasks!</p>
-    
-    
+
+
     <h2>Nudged Tasks</h2>
-    
+
     {% if nudged_tasks %}
-        
+
         <form action="" method="GET">
             <div class="task_filter">
                 <ul>
@@ -26,10 +26,10 @@
                 </ul>
             </div>
         </form>
-        
-        
+
+
         {% regroup nudged_tasks by get_state_display as grouped_tasks %}
-        
+
         <table class="task_list">
             <tr>
                 <th>ID</th>
@@ -61,16 +61,16 @@
                 </tbody>
             {% endfor %}
         </table>
-        
+
     {% else %}
         {% trans "You have no nudged tasks right now." %}
     {% endif %}
-    
-    
+
+
     <h2>Assigned Tasks</h2>
-    
+
     {% if assigned_tasks %}
-        
+
         <form action="" method="GET">
             <div class="task_filter">
                 <ul>
@@ -79,9 +79,9 @@
                 </ul>
             </div>
         </form>
-        
+
         {% regroup assigned_tasks by get_state_display as grouped_tasks %}
-        
+
         <table class="task_list">
             <tr>
                 <th>ID</th>
@@ -113,16 +113,16 @@
                 </tbody>
             {% endfor %}
         </table>
-        
+
     {% else %}
         {% trans "You have no assigned tasks right now." %}
     {% endif %}
-    
-    
+
+
     <h2>Created Tasks</h2>
-    
+
     {% if created_tasks %}
-        
+
         <form action="" method="GET">
             <div class="task_filter">
                 <ul>
@@ -131,9 +131,9 @@
                 </ul>
             </div>
         </form>
-        
+
         {% regroup created_tasks by get_state_display as grouped_tasks %}
-        
+
         <table class="task_list">
             <tr>
                 <th>ID</th>
@@ -165,9 +165,9 @@
                 </tbody>
             {% endfor %}
         </table>
-        
+
     {% else %}
         {% trans "You have no created tasks right now." %}
     {% endif %}
-    
+
 {% endblock %}

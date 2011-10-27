@@ -6,7 +6,7 @@
 
 {% block body %}
     <h1>{% trans "View Message" %}</h1>
-    
+
     <dl class="message-headers">
         <dt>{% trans "Sender" %}:</dt>
         <dd><a href="{% url profile_detail message.sender %}">{{ message.sender }}</a></dd>
@@ -17,12 +17,12 @@
         <dt>{% trans "Recipient" %}:</dt>
         <dd>{{ message.recipient }}</dd>
     </dl>
-    
+
     <p>{% oembed %}{{ message.body|linebreaksbr }}{% endoembed %}</p>
-    
+
     {% ifequal message.recipient user %}
         <p><a href="{% url messages_reply message.id %}">{% trans "Reply" %}</a></p>
     {% endifequal %}
-    
+
     <p><a href="{% url messages_delete message.id %}">{% trans "Delete" %}</a></p>
 {% endblock %}

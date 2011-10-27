@@ -22,11 +22,11 @@
             }
         </style>
     </head>
-    
+
     <body>
-        
+
         <h1>Open Assigned Tasks</h1>
-        
+
         {% if assigned_tasks %}
             {% regroup assigned_tasks by get_state_display as grouped_tasks %}
             <table class="task_list">

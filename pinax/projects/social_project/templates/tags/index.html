@@ -18,7 +18,7 @@
 
 {% block body %}
     <h1>{% trans "All Photos Matching " %}<i>"{{ tag }}"</i></h1>
-    
+
     {% if phototags %}
         <div class="thumb-row clearfix">
         {% for photo in phototags %}
@@ -34,10 +34,10 @@
     {% else %}
         No photos matching tag.
     {% endif %}
-    
+
     {% if bookmarktags %}
         {% scores_for_objects bookmarktags as score_dict %}
-        
+
         <h1>All Bookmarks Matching <i>{{ tag }}</i></h1>
         <table class="bookmarks" width="100%">
             {% for bookmark in bookmarktags %}
@@ -47,7 +47,7 @@
                         <div class="details"><a href="{% url profile_detail bookmark.bookmark.adder.username %}">{{ bookmark.bookmark.adder }}</a></div>
                         {{ bookmark.bookmark.added|date }}
                     </td>
-                    
+
                     <td>
                         <h2><a href="{{ bookmark.bookmark.url }}">{{ bookmark.bookmark.description }}</a></h2>
                         <div class="url">{% if bookmark.bookmark.get_favicon_url %}<img src="{{ bookmark.bookmark.get_favicon_url }}" width="16" height="16" /> {% endif %}{{ bookmark.bookmark.url }}</div>
@@ -57,14 +57,14 @@
                 </tr>
             {% endfor %}
         </table>
-        
+
     {% else %}
         No bookmarks matching tag.
     {% endif %}
-    
-    
+
+
     <h1>{% trans "All Blog Posts Matching " %}<i>"{{ tag }}"</i></h1>
-    
+
     {% if alltags %}
         <p>{% trans "These are blog posts from everyone:" %}</p>
         {% for blog_post in alltags %}
@@ -73,25 +73,25 @@
     {% else %}
         No blog posts matching tag.
     {% endif %}
-    
+
     <h1>{% blocktrans %}All Tribes Matching <i>{{ tag }}</i>{% endblocktrans %}</h1>
-    
+
     <dl>
         {% for tribe in tribe_tags %}
             {% show_tribe tribe %}
         {% endfor %}
     </dl>
-    
+
     {% comment %}
     <h1>{% blocktrans %}All Tribe Topics Matching <i>{{ tag }}</i>{% endblocktrans %}</h1>
-    
+
     {% for topic in tribe_topic_tags %}
         {% show_tribe_topic topic %}
     {% endfor %}
     {% endcomment %}
-    
+
     <h1>{% blocktrans %}All Wiki Articles Matching <i>{{ tag }}</i>{% endblocktrans %}</h1>
-    
+
     <table class="topics">
         {% for article in wiki_article_tags %}
             {% show_teaser article %}

@@ -15,7 +15,7 @@
 {% endblock %}
 
 {% block body %}
-    
+
     <div class="blog-post">
         <h2>{{ post.title }}</h2>
         <div class="blog-meta"><p>Posted by: <a href="{% url profile_detail post.author.username %}">{{ post.author.username }}</a> on {{ post.publish|date }}</p></div>
@@ -29,11 +29,11 @@
                 <a href="{% url blog_edit post.id %}">Edit Post</a>
             {% endifequal %}
         </div>
-        
+
         {% show_blog_post post %}
-        
+
     </div>
-    
+
     <h3>Comments on This Post:</h3>
     {% comments post %}
 {% endblock %}

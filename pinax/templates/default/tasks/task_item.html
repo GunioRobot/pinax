@@ -10,7 +10,7 @@
 
 <div class="task clearfix">
     <div class="task-meta">
-        
+
         {% if task.assignee %}
             <div class="avatar">{% avatar task.assignee 40 %}</div>
             <div class="details"><b>{% trans "Assignee" %}</b>: <a href="{% groupurl tasks_for_user group username=task.assignee %}">{{ task.assignee }}</a></div>

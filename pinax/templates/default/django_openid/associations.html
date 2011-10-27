@@ -24,9 +24,9 @@
     </form>
     {% endfor %}
     {% endif %}
-    
+
     <p>{% trans "To associate a new OpenID with this account, sign in with it here:" %}</p>
-    
+
     <form action="{{ action_new }}" method="POST">
         <p>
             <input type="text" name="openid_url" value="" />

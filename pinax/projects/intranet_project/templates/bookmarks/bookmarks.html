@@ -13,12 +13,12 @@
 
 {% block body %}
     <h1>All Bookmarks</h1>
-    
+
     {% if bookmarks %}
         <p>These are bookmarks from everyone:</p>
-        
+
         {% autopaginate bookmarks %}
-        
+
         <table class="bookmarks">
             {% for bookmark in bookmarks %}
                 <tr class="{% cycle odd,even %}">
@@ -44,11 +44,11 @@
                 </tr>
             {% endfor %}
         </table>
-        
+
         {% paginate %}
-        
+
     {% else %}
         <p>No bookmarks yet.</p>
     {% endif %}
-    
+
 {% endblock %}

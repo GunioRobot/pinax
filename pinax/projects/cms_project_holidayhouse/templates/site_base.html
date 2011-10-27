@@ -46,13 +46,13 @@ $(document).ready(function(){
         function(){$(this).parent().css('outline', '4px solid #E9B007')},
         function(){$(this).parent().css('outline', '')}
     );
-    
+
     $('a.frontendadmin_edit').click(function(){
             $(this).parent().css('outline', '');
             $(this).parent().load(this.href);
             return false;
     });
-    
+
     $('a.frontendadmin_delete').hover(
         function(){$(this).parent().css('outline', '4px solid #E9B007')},
         function(){$(this).parent().css('outline', '')}

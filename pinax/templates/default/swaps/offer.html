@@ -22,7 +22,7 @@
         <p>Offering: {{ offer.offering|urlize }}</p>
         <p>Want: {{ offer.want|urlize }}</p>
         <p>State: {{ offer.get_state_display }}</p>
-        
+
         <div class="blog-tags">
             <p>
                 {% silk "tag_blue" %}
@@ -51,7 +51,7 @@
                 {% endifequal %}
             {% endif %}
         </div>
-        
+
     </div>
-    
+
 {% endblock %}

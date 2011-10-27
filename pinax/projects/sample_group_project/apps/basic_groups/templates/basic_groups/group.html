@@ -29,11 +29,11 @@
             </div>
         </div>
     {% endif %}
-    
+
     <div style="width: 550px;">
-        
+
         <h1>{% trans "Group" %} {{ group.name }}</h1>
-        
+
         <p>
             {% trans "Slug:" %} <tt>{{ group.slug }}</tt><br />
             {% trans "Creator:" %} <a href="{% url profile_detail group.creator.username %}">{{ group.creator }}</a><br />
@@ -41,13 +41,13 @@
             <br />
             {% show_tags_for group %}
         </p>
-        
+
         <p>{{ group.description }}</p>
-        
+
         {% ifequal user group.creator %}
             <div class="form-toggle">
                 <p><span id="edit-group-toggle">{% trans "Edit details" %}</span></p>
-                
+
                 <form id="edit-group" method="POST" action="">
                     <table>
                         {{ group_form }}
@@ -55,7 +55,7 @@
                     </table>
                 </form>
             </div>
-            
+
             {% ifequal group.members.all.count 1 %}
                 <p>{% silk "delete" %} <a href="#" onclick="$('#delete_group_form').toggle(); return false;">{% trans "Delete Group" %}</a><p>
                  <form class="delete_form" id="delete_group_form" action="{% url group_delete group.slug %}" method="POST" style="display: none;">
@@ -64,9 +64,9 @@
             {% else %}
                 <p>{% trans "You are not the only member of the group so you cannot delete the group." %}</p>
             {% endifequal %}
-            
+
         {% endifequal %}
-        
+
         {% if user.is_authenticated %}
             <div>
                 <form method="POST" action="">
@@ -107,5 +107,5 @@
             }
         });
     </script>
-    
+
 {% endblock %}

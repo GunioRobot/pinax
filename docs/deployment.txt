@@ -3,7 +3,7 @@
 Deployment
 ==========
 
-In short: 
+In short:
 
 * Create a ``local_settings.py`` alongside ``settings.py`` for your
   host-specific settings (like database connection, email, etc).
@@ -21,7 +21,7 @@ Here is a basic configuration for Apache (assuming you are using Python 2.5)::
 
     WSGIDaemonProcess mysite-production python-path=/path/to/virtualenvs/pinax-env/lib/python2.5/site-packages
     WSGIProcessGroup mysite-production
-    
+
     WSGIScriptAlias / /path/to/project/deploy/pinax.wsgi
     <Directory /path/to/project/deploy>
         Order deny,allow
@@ -64,20 +64,20 @@ Sending Mail and Notices
 
 Both mail messages and (some) notifications are queued for asynchronous
 delivery. To actually deliver them you need to run::
-    
+
     python manage.py send_mail
-    
+
 and::
-    
+
     python manage.py emit_notices
-    
+
 on a frequent, regular basis.
 
 Because failed mail will be deferred, you need an additional, less
 frequenc, run of::
-    
+
     python manage.py retry_deferred
-    
+
 We recommend setting up some scripts to run these commands within your
 virtual environment. You can use the following shell script as the basis for
 each management command::
@@ -95,10 +95,10 @@ each management command::
 
 Let's assume the scripts you create from above are stored in
 ``$PROJECT_ROOT/cron``. You can now setup the cron job similar to::
-    
+
     * * * * * /path/to/project/cron/send_mail.sh
     * * * * * /path/to/project/cron/emit_notices.sh
-    
+
     0,20,40 * * * * /path/to/project/cron/retry_deferred.sh
 
 This runs ``send_mail`` and ``emit_notices`` every minute and

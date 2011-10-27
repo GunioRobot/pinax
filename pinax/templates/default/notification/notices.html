@@ -12,20 +12,20 @@
 {% endblock %}
 
 {% block body %}
-    
+
     <h1>{% trans "Notices" %}</h1>
-    
+
     {% autopaginate notices %}
-    
+
     {% if notices %}
         <a href="{% url notification_mark_all_seen %}">{% trans "Mark all unseen notices seen" %}</a>
-        
+
         {# TODO: get timezone support working with regroup #}
         {% regroup notices by added.date as notices_by_date %}
-        
+
         {% for date in notices_by_date %}
             <h2 class="notice_date">{{ date.grouper|naturalday:_("MONTH_DAY_FORMAT")|capfirst }}</h2>
-            
+
             {% for notice in date.list %}
                 {% if notice.is_unseen %}
                     <div class="unseen_notice">
@@ -38,17 +38,17 @@
                 </div>
             {% endfor %}
         {% endfor %}
-        
+
         {% paginate %}
-        
+
     {% else %}
         <p>{% trans "No notices." %}</p>
     {% endif %}
-    
-    
+
+
     <div class="notice_settings">
         <h2>{% trans "Settings" %}</h2>
-        
+
         {% url acct_email as email_url %}
         {% if user.email %}
             <p>
@@ -62,7 +62,7 @@
                 {% blocktrans %}You do not have a verified email address to which notices can be sent. You can add one by going to <a href="{{ email_url }}">Account</a>.{% endblocktrans %}
             </p>
         {% endif %}
-        
+
         <form method="POST" action=""> {# doubt this easy to do in uni-form #}
             <table class="notice_settings">
                 <tr>

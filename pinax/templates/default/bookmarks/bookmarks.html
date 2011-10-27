@@ -17,7 +17,7 @@
 
 {% block body %}
     <h1>{% trans "All Bookmarks" %}</h1>
-    
+
     {% if bookmarks %}
         {# ## FIXME this should probably be done in djanog-sorting #}
         {% with request.field|cut:"-" as sort_order %}
@@ -48,12 +48,12 @@
                 {% endifequal %}
             {% endifequal %}
         </p>
-        
+
         {% autopaginate bookmarks %}
-        
+
         {% votes_by_user user on bookmarks as vote_dict %}
         {% scores_for_objects bookmarks as score_dict %}
-        
+
         <table class="bookmarks">
             {% for bookmark in bookmarks %}
                 <tr class="{% cycle odd,even %}">
@@ -96,14 +96,14 @@
                 </tr>
             {% endfor %}
         </table>
-        
+
         {% paginate %}
-        
+
     {% endwith %}
     {% else %}
         <p>{% trans "No bookmarks yet." %}</p>
     {% endif %}
-    
+
 {% endblock %}
 
 {% block extra_body %}

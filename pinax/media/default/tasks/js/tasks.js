@@ -3,7 +3,7 @@ $(document).ready(function() {
         function() {
             $(this).parents("tbody").next("tbody").hide();
             $(this).find('.arrow').html("&#x25B8;");
-        }, 
+        },
         function() {
             $(this).parents("tbody").next("tbody").show();
             $(this).find('.arrow').html("&#x25BE;");

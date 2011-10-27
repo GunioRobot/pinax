@@ -9,12 +9,12 @@
 
 {% block body %}
     <h1>{{ swap.get_state_display }} {% blocktrans %}Swap{% endblocktrans %}</h1>
-    
+
     <h2>Proposing Offer:</h2>
-    
+
     <div class="blog-post">
         <h3>{{ swap.proposing_offer.short_description }}</h3>
-        
+
         <div class="blog-meta">
             <p>
                 Offered by: <a href="{% url profile_detail swap.proposing_offer.offerer.username %}">{{ swap.proposing_offer.offerer.username }}</a>
@@ -34,12 +34,12 @@
             {% endifequal %}
         </div>
     </div>
-    
+
     <h2>Responding Offer:</h2>
-    
+
     <div class="blog-post">
         <h3>{{ swap.responding_offer.short_description }}</h3>
-        
+
         <div class="blog-meta">
             <p>
                 Offered by: <a href="{% url profile_detail swap.responding_offer.offerer.username %}">{{ swap.responding_offer.offerer.username }}</a>
@@ -59,9 +59,9 @@
             {% endifequal %}
         </div>
     </div>
-    
+
     <h2>Discussion of this Swap:</h2>
-    
+
     {% comments swap %}
-    
+
 {% endblock %}

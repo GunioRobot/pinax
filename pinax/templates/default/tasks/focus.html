@@ -15,10 +15,10 @@
 
 {% block body %}
     <p><a href="{% groupurl task_list group %}?group_by={{ field }}">&larr; {% trans "Back to All Tasks" %}</a></p>
-    
+
     {#<h1>{% trans "Tasks for Project" %} <a href="@@@">{{ group.name }}</a></h1> #}
     <h1>Tasks with {{ field }} = {{ value }}</h1>
-    
+
     {% if task_filter %}
         <form action="" method="GET">
             <div class="task_filter">
@@ -32,7 +32,7 @@
             {% endif %}
         </form>
     {% endif %}
-    
+
     <p>Group by:
         {% ifequal group_by "state" %}
             <a href="?{% if gbqs %}{{ gbqs }}&{% endif %}group_by=modified">last modified</a>
@@ -42,7 +42,7 @@
             <a href="?{% if gbqs %}{{ gbqs }}&{% endif %}group_by=assignee">assignee</a>
             or
             <a href="?{% if gbqs %}{{ gbqs }}&{% endif %}group_by=tag">tag</a>
-            
+
             {% order tasks by state %}
             {% regroup tasks by get_state_display as grouped_tasks %}
         {% else %}
@@ -54,7 +54,7 @@
                 <b>assignee</b>
                 or
                 <a href="?{% if gbqs %}{{ gbqs }}&{% endif %}group_by=tag">tag</a>
-                
+
                 {% order tasks by assignee %}
                 {% regroup tasks by assignee as grouped_tasks %}
             {% else %}
@@ -75,14 +75,14 @@
                     <a href="?{% if gbqs %}{{ gbqs }}&{% endif %}group_by=assignee">assignee</a>
                     or
                     <a href="?{% if gbqs %}{{ gbqs }}&{% endif %}group_by=tag">tag</a>
-                    
+
                     {% order tasks by -modified %}
                     {% regroup tasks by modified.date as grouped_tasks %}
                 {% endifequal %}
             {% endifequal %}
         {% endifequal %}
     </p>
-    
+
     <p class="expand_collapse_all"><a class="expand_all">expand all</a> &ndash; <a class="collapse_all">collapse all</a></p>
     <table class="task_list">
         <tr>
@@ -165,5 +165,5 @@
         {% endifequal %}
     </table>
     <p class="expand_collapse_all"><a class="expand_all">expand all</a> &ndash; <a class="collapse_all">collapse all</a></p>
-    
+
 {% endblock %}

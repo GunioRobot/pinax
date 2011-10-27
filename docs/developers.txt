@@ -3,7 +3,7 @@
 ====================================
 
 There is a different "workflow" for developers with Commit privilege
-and those without.  
+and those without.
 
 
 Developers with Commit Privileges
@@ -53,11 +53,11 @@ Keep in sync with the main pinax master
 ---------------------------------------
 
 Add a name for the pinax master git location::
-    
+
     $ git remote add pinaxmaster git://github.com/pinax/pinax.git
 
 This adds an entry to your existing local copy's .git/config like::
-    
+
     [remote "pinaxmaster"]
         url = git://github.com/pinax/pinax.git
         fetch = +refs/heads/*:refs/remotes/pinaxmaster/*

@@ -21,10 +21,10 @@ Here is how to add a new tab for your app ``myapp``:
  2. Create a ``myapps/base.html`` template that all pages under that tab will
     extend. Make sure it defines a block ``body_class`` with content
     ``myapp``
-    
+
  3. edit the CSS file (``site_tabs.css`` if it exists) and at the
     appropriate points add the selectors:
-    
+
     * ``body.myapp #tab_myapp``
     * ``body.myapp #tab_myapp a``
 
@@ -36,7 +36,7 @@ The global ``base.html`` (under ``pinax/templates/default/``) has the following:
 
     ...
     <body class="{% block body_class %}{% endblock %}">
-    
+
     ...
     <div id="tabhead">
         ...
@@ -51,7 +51,7 @@ Note that this defines five blocks:
  * ``left_tabs``
  * ``right_tabs``
  * ``subnav``
- 
+
 You shouldn't normally need to change this at all for your site unless
 you want to make a change like move where the subnav goes.
 
@@ -61,7 +61,7 @@ and or ``right_tabs`` blocks with the actual site-wide tabs. For example, here i
 logged in:
 
 ::
-    
+
     {% block right_tabs %}
         {% if user.is_authenticated %}
             <ul class="tabs">{% spaceless %}
@@ -79,11 +79,11 @@ Now, any page under the bookmarks tab extends the template
 ``bookmarks/base.html`` which looks something like this:
 
 ::
-    
+
     {% extends "site_base.html" %}
-    
+
     {% block body_class %}bookmarks{% endblock %}
-    
+
     {% block subnav %}
         <ul>
             <li><a href="{% url add_bookmark %}">Add Bookmark</a></li>
@@ -103,9 +103,9 @@ with ``class="bookmarks``" to the ``li`` in ``site_base.html`` that has
 
 This is done in CSS.
 ::
-    
+
     /* SITE-SPECIFIC TAB STYLING */
-    
+
     body.profile #tab_profile a,
     body.blogs #tab_blogs a,
     body.bookmarks #tab_bookmarks a

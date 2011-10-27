@@ -40,7 +40,7 @@
             <a href="{% groupurl wiki_edit group title=article.title %}" {% trans ">Create it now</a>?" %}
         </p>
     {% endif %}
-    
+
     {{ article.content|apply_markup:article.markup|wiki_links }}
 
     {% show_tags_for article %}

@@ -7,7 +7,7 @@
 
 {% block body %}
     <h1>{% trans "Editing Offer" %}</h1>
-    
+
     {% ifequal offer.offerer request.user %}
         <div>
             <form class="uniForm" id="offer_form" method="POST" action="">

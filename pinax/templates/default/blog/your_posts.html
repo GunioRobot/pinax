@@ -16,9 +16,9 @@
 {% endblock %}
 
 {% block body %}
-  
+
     <h1>{% trans "Your Posts" %}</h1>
-    
+
     {% if blogs %}
         <table cellpadding="5" cellspacing="0" border="0" class="blog-list" width="100%">
             <th>Title</th>
@@ -67,5 +67,5 @@
     {% else %}
         {% trans "No blog posts yet." %}
     {% endif %}
-    
+
 {% endblock %}

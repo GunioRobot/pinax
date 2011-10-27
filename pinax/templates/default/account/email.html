@@ -7,9 +7,9 @@
 
 {% block body %}
     <h1>{% trans "Account" %}</h1>
-    
+
     <h2>{% trans "Email Addresses" %}</h2>
-    
+
     {% if user.emailaddress_set.all %}
         <table class="email_list">
             {% for emailaddress in user.emailaddress_set.all %}
@@ -56,9 +56,9 @@
     {% else %} {# no user.emailaddress_set.all #}
         <p><span class="warning">{% trans "None" %}</span>. {% trans "You should really add one so you can receive notifications, reset your password if you forget it, etc." %}</p>
     {% endif %}
-    
+
     <h3>{% trans "Add Email Address" %}</h3>
-    
+
     <form method="post" action="" class="uniForm">
         <fieldset class="inlineLabels">
             {{ add_email_form|as_uni_form }}
@@ -68,5 +68,5 @@
             </div>
         </fieldset>
     </form>
-    
+
 {% endblock %}

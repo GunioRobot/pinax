@@ -23,7 +23,7 @@
                 <li><a href="/tags/{{ tag }}">{{ tag }}</a></li>
             {% endfor %}
         </ul>
-        
+
         <div class="embed">
         <a href="#" id="embed-code-toggle">{% trans "Get Embed Code" %}</a>
              <div id="embed-code" style="display: none;">
@@ -32,19 +32,19 @@
                 </textarea>
             </div>
         </div>
-        
+
     {% endif %}
-    
+
     {% if is_me %}
         <form action="{% groupurl photo_destroy group id=photo.id %}" method="POST">
             <label>Delete Photo</label> <input type="image" src="{{ STATIC_URL }}pinax/images/silk/icons/delete.png" border="0" title="{% trans "Delete Photo" %}" />
                         <input type="hidden" name="action" value="delete"/>
         </form>
-        
+
         <a href="{% groupurl photo_edit group id=photo.id %}">Edit Photo</a>
-        
+
     {% endif %}
-    
+
 </div>
 
 <div class="photo-right-exif">

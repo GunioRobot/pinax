@@ -12,7 +12,7 @@
 
 {% block body %}
     <h1>{% trans "Tweets" %}</h1>
-    
+
     {# @@@ can the publish to twitter checkbox actually be part of form and then we can use uni-form #}
     <form method="POST" action="{% url tweets_you_follow %}">
         <p>{% trans "What are you doing?" %}</p>
@@ -22,19 +22,19 @@
         <input name="pub2twitter" type="checkbox" id="pub2twitter" value="yes" />
         <label for="pub2twitter">{% trans "Publish to Twitter?" %}</label>
         {% endif %}
-        
+
         <p>
             <span id="chars_left"></span> {% trans "chars left." %}
             <input type="submit" value="{% trans "post" %}">
         </p>
     </form>
-    
+
     <p>{% blocktrans with user.followed.count as follow_count and user.followed.count|pluralize:_("person,people") as follow_name %}
         These are tweets from the {{ follow_count }} {{ follow_name }} you are following (plus your own){% endblocktrans %}:
     </p>
-    
+
     {% tweet_listing tweets 1 0 %}
-    
+
 {% endblock %}
 
 {% block extra_body %}
